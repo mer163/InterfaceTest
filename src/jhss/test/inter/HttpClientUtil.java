@@ -16,7 +16,8 @@ import org.apache.http.util.EntityUtils;
 public class HttpClientUtil {
 	
 	public static DefaultHttpClient httpClient = null;  
-	static String test = "http://www.baidu.com";
+	static String url = "http://192.168.1.82:7073/quote/info/newslist?code=20600000&fromId=0&limit=20";
+	static String login_url = "http://119.253.36.116/jhss/member/dologonnew/503001001/13222222222/123456";
 	
 	public static HttpClient getInstance() {  
         if (httpClient == null) {  
@@ -30,8 +31,14 @@ public class HttpClientUtil {
     }  
 	
 	public static void main(String[] args) {
-		System.out.println(doGet(test));
-				
+		System.out.println(doGet(login_url));
+		String tem = doGet(login_url);
+		if(tem.contains("\"status\":\"0000\"")){
+			System.out.println("返回0000，访问成功");
+		}else{
+			System.out.println("返回非0000，检查参数。");
+			System.out.println(tem);
+		}
 	}
 	
 	
@@ -40,12 +47,14 @@ public class HttpClientUtil {
     }  
   
     public static String doGet(String url, List<BasicNameValuePair> data) {  
-        /* 建立HTTP Post连线 */  
+        /* 建立HTTP Get连线 */  
         HttpGet httpGet = new HttpGet(url);  
         try {  
             HttpResponse httpResponse = HttpClientUtil.getInstance().execute(httpGet);  
             if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {  
-                return EntityUtils.toString(httpResponse.getEntity());  
+            	String ret = EntityUtils.toString(httpResponse.getEntity());
+            	
+                return XmlBase64.decode(ret);  
             } else {  
                 System.out.println("doGet Error Response: " + httpResponse.getStatusLine().toString());  
             }  
