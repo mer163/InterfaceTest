@@ -1,7 +1,11 @@
 package jhss.test.inter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -17,7 +21,7 @@ public class HttpClientUtil {
 	
 	public static DefaultHttpClient httpClient = null;  
 	static String url = "http://192.168.1.82:7073/quote/info/newslist?code=20600000&fromId=0&limit=20";
-	static String login_url = "http://119.253.36.116/jhss/member/dologonnew/503001001/13222222222/123456";
+	static String login_url = "http://119.253.36.116/jhss/member/dologonnew/503001001/13222222222/123456?flag=-99";
 	
 	public static HttpClient getInstance() {  
         if (httpClient == null) {  
@@ -52,9 +56,9 @@ public class HttpClientUtil {
         try {  
             HttpResponse httpResponse = HttpClientUtil.getInstance().execute(httpGet);  
             if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {  
-            	String ret = EntityUtils.toString(httpResponse.getEntity());
-            	
-                return XmlBase64.decode(ret);  
+            	String result = EntityUtils.toString(httpResponse.getEntity());
+//                return result;
+            	return XmlBase64.decode(result);  
             } else {  
                 System.out.println("doGet Error Response: " + httpResponse.getStatusLine().toString());  
             }  
@@ -63,6 +67,42 @@ public class HttpClientUtil {
         }  
         return null;  
     }  
+    
+    /**
+     * 带header参数的Get请求
+     * @param url
+     * @param header HashMap保存header参数
+     * @return
+     */
+    public static String doGet(String url, HashMap header){
+    	HttpGet httpGet = new HttpGet(url);  
+    	
+    	Set keys = header.keySet( );  
+    	if(keys != null) {  
+    	Iterator iterator = keys.iterator( );  
+    		while(iterator.hasNext( )) {  
+    			String key = (String) iterator.next( );  
+    			String value = (String) header.get(key);  
+    			httpGet.addHeader(key, value);	//添加header参数
+    		}  
+    	}
+        try {  
+//        	httpGet.addHeader("ak", "0630010010000");
+//        	httpGet.addHeader("token","201606031014016471999");
+//        	httpGet.addHeader("userid","6471999");
+            HttpResponse httpResponse = HttpClientUtil.getInstance().execute(httpGet);  
+            if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {  
+            	String result = EntityUtils.toString(httpResponse.getEntity());
+            	
+                return XmlBase64.decode(result);  
+            } else {  
+                System.out.println("doGet Error Response: " + httpResponse.getStatusLine().toString());  
+            }  
+        } catch (Exception e) {  
+            e.printStackTrace();  
+        }  
+        return null;  
+    }
   
     public static String doPost(String url) {  
         return doPost(url, new ArrayList<BasicNameValuePair>());  
@@ -79,8 +119,8 @@ public class HttpClientUtil {
             HttpResponse httpResponse = HttpClientUtil.getInstance().execute(httpPost);  
             // 若状态码为200 ok  
             if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {  
-                // 取出回应字串  
-                return EntityUtils.toString(httpResponse.getEntity());  
+                // 取出回应字串  ,base64解码
+                return XmlBase64.decode(EntityUtils.toString(httpResponse.getEntity()));  
             } else {  
                 System.out.println("doPost Error Response: " + httpResponse.getStatusLine().toString());  
             }  
@@ -91,4 +131,35 @@ public class HttpClientUtil {
     } 
 	
 	
+    public static String doPost(String url, List<BasicNameValuePair> data, HashMap header) {  
+        /* 建立HTTP Post连线 */  
+        HttpPost httpPost = new HttpPost(url);  
+        Set keys = header.keySet( );  
+    	if(keys != null) {  
+    	Iterator iterator = keys.iterator( );  
+    		while(iterator.hasNext( )) {  
+    			String key = (String) iterator.next( );  
+    			String value = (String) header.get(key);  
+    			httpPost.addHeader(key, value);	//添加header参数
+    		}  
+    	}
+        try {  
+            // 发出HTTP request  
+            // httpPost.setEntity(new UrlEncodedFormEntity(data, HTTP.UTF_8));  
+            httpPost.setEntity(new UrlEncodedFormEntity(data, "UTF-8"));  
+            // 取得HTTP response  
+            HttpResponse httpResponse = HttpClientUtil.getInstance().execute(httpPost);  
+            // 若状态码为200 ok  
+            if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {  
+                // 取出回应字串  ,base64解码
+                return XmlBase64.decode(EntityUtils.toString(httpResponse.getEntity()));  
+            } else {  
+                System.out.println("doPost Error Response: " + httpResponse.getStatusLine().toString());  
+            }  
+        } catch (Exception e) {  
+            e.printStackTrace();  
+        }  
+        return null;  
+    } 
+    
 }
