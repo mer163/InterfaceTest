@@ -1,12 +1,14 @@
 package jhss.test.inter.testcases;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import jhss.test.inter.ApiUtil;
-import jhss.test.inter.Constant;
-import jhss.test.inter.HttpClientUtil;
-import jhss.test.inter.JhssUtil;
+import jhss.interfaces.base.ApiUtil;
+import jhss.interfaces.base.Constant;
+import jhss.interfaces.base.HttpClientUtil;
+import jhss.interfaces.base.JhssUtil;
+import jhss.interfaces.base.TestBase;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -18,7 +20,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
 
-public class TestMaster {
+public class TestMaster extends TestBase{
 	
 	private static String ak = "0630010010000";
 	private static String token;
@@ -37,6 +39,7 @@ public class TestMaster {
 		String result = JhssUtil.login();
 		token = JhssUtil.getToken(result);
 		userId = JhssUtil.getUserId(result);
+
 	}
 
 	@AfterClass

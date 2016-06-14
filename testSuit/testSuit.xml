@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="precodition">
+    <!--platformName in  {web ,android ,ios }-->
+    <parameter name="platformName" value="Android"/>
+    <!--APP PARAM-->
+    <parameter name="ak" value=""/>
+    <parameter name="url" value=""/>
+    <parameter name="host" value= "http://192.168.2.141:"/>
+
+        
+<!--WEB PARAM-->
+    <parameter name = "browser_name" value = "chrome"/>
+    <parameter name = "remote_url" value = ""/>
+
+    <test name="MNCG_Tests" preserve-order="true">
+        <groups>
+            <define name="p0">
+                <include name="p0"/>
+            </define>
+            <define name="p1">
+                <include name="p1"/>
+            </define>
+            <define name="p2">
+                <include name="p2"/>
+            </define>
+            <define name="p3">
+                <include name="p3"/>
+            </define>
+            <define name="p4">
+                <include name="p4"/>
+            </define>
+            <run>
+                <include name="p0"/>
+                <include name="p1"/>
+                <include name="p2"/>
+                <!--<include name="p3"/>-->
+                <!--<include name="p4"/>-->
+                <!--<exclude name="xxxx" />-->
+            </run>
+            <dependencies>
+                <group name="p1" depends-on="p0"></group>
+                <!-- name,depends-on均为参数为必须 -->
+                <group name="p2" depends-on="p0"></group>
+
+                <group name="p3" depends-on="p0"></group>
+                <group name="p4" depends-on="p0"></group>
+            </dependencies>
+        </groups>
+        <classes>
+            <parameter name="example" value="example"/>
+            <class name="jhss.test.inter.testcases.TestMaster"/>
+        </classes>
+    </test>
+
+</suite>

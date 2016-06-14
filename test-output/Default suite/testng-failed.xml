@@ -5,8 +5,8 @@
     <classes>
       <class name="jhss.test.inter.testcases.TestShop">
         <methods>
-          <include name="testQueryExpertBadge"/>
           <include name="afterTest"/>
+          <include name="testUseBadge"/>
           <include name="beforeTest"/>
           <include name="beforeClass"/>
           <include name="afterClass"/>

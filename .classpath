@@ -7,7 +7,7 @@
 	<classpathentry kind="lib" path="libs/fluent-hc-4.3.1.jar"/>
 	<classpathentry kind="lib" path="libs/httpclient-4.3.1.jar" sourcepath="libs/httpclient-4.3.1.jar"/>
 	<classpathentry kind="lib" path="libs/httpclient-cache-4.3.1.jar"/>
-	<classpathentry kind="lib" path="libs/httpcore-4.3.jar"/>
+	<classpathentry kind="lib" path="libs/httpcore-4.3.jar" sourcepath="libs/httpcore-4.3.jar"/>
 	<classpathentry kind="lib" path="libs/httpmime-4.3.1.jar"/>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
