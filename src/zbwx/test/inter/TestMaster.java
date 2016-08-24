@@ -1,14 +1,15 @@
-package jhss.test.inter;
+package zbwx.test.inter;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import jhss.test.inter.ApiUtil;
-import jhss.test.inter.HttpClientUtil;
-
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
+
+import zbwx.test.inter.ApiUtil;
+import zbwx.test.inter.HttpClientUtil;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;

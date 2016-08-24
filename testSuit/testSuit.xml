@@ -5,7 +5,7 @@
     <!--APP PARAM-->
     <parameter name="ak" value=""/>
     <parameter name="url" value=""/>
-    <parameter name="host" value= "http://192.168.2.141:"/>
+    <parameter name="host" value= "http://pan.zbwxkj.com"/>
 
         
 <!--WEB PARAM-->
@@ -48,7 +48,7 @@
         </groups>
         <classes>
             <parameter name="example" value="example"/>
-            <class name="jhss.test.inter.testcases.TestMaster"/>
+            <class name="zbwx.test.inter.testcases.TestMaster"/>
         </classes>
     </test>
 

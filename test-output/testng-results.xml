@@ -2,16 +2,10 @@
 <testng-results skipped="0" failed="0" total="0" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="precodition" duration-ms="4" started-at="2016-06-12T10:43:05Z" finished-at="2016-06-12T10:43:05Z">
+  <suite name="Default suite" duration-ms="6" started-at="2016-08-24T10:26:38Z" finished-at="2016-08-24T10:26:38Z">
     <groups>
     </groups>
-    <test name="MNCG_Tests" duration-ms="4" started-at="2016-06-12T10:43:05Z" finished-at="2016-06-12T10:43:05Z">
-      <class name="jhss.test.inter.testcases.TestMaster">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:jhss.test.inter.testcases.TestMaster@326de728]" name="beforeSuite" is-config="true" duration-ms="575" started-at="2016-06-12T18:43:04Z" finished-at="2016-06-12T18:43:05Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeSuite -->
-      </class> <!-- jhss.test.inter.testcases.TestMaster -->
-    </test> <!-- MNCG_Tests -->
-  </suite> <!-- precodition -->
+    <test name="Default test" duration-ms="6" started-at="2016-08-24T10:26:38Z" finished-at="2016-08-24T10:26:38Z">
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

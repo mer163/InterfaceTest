@@ -1,4 +1,4 @@
-package jhss.test.inter;
+package zbwx.test.inter;
 
 import java.util.ArrayList;
 import java.util.List;
