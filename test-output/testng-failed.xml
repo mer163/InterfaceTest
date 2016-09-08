@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+<suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="zbwx.test.inter.testcases.TestShop">
+      <class name="zbwx.test.h5.testcases.TestLogin">
         <methods>
-          <include name="beforeSuite"/>
-          <include name="testUseBadge"/>
-          <include name="testHome"/>
-          <include name="testQueryExpertBadge"/>
-          <include name="testQueryMyBadge"/>
-          <include name="testBuyProps"/>
+          <include name="login_success"/>
         </methods>
-      </class> <!-- zbwx.test.inter.testcases.TestShop -->
+      </class> <!-- zbwx.test.h5.testcases.TestLogin -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -57,8 +57,8 @@ public class HttpClientUtil {
             HttpResponse httpResponse = HttpClientUtil.getInstance().execute(httpGet);  
             if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {  
             	String result = EntityUtils.toString(httpResponse.getEntity());
-//                return result;
-            	return XmlBase64.decode(result);  
+                return result;
+//            	return XmlBase64.decode(result);  
             } else {  
                 System.out.println("doGet Error Response: " + httpResponse.getStatusLine().toString());  
             }  
@@ -93,8 +93,8 @@ public class HttpClientUtil {
             HttpResponse httpResponse = HttpClientUtil.getInstance().execute(httpGet);  
             if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {  
             	String result = EntityUtils.toString(httpResponse.getEntity());
-            	
-                return XmlBase64.decode(result);  
+            	return result;
+//                return XmlBase64.decode(result);  
             } else {  
                 System.out.println("doGet Error Response: " + httpResponse.getStatusLine().toString());  
             }  
@@ -120,7 +120,8 @@ public class HttpClientUtil {
             // 若状态码为200 ok  
             if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {  
                 // 取出回应字串  ,base64解码
-                return XmlBase64.decode(EntityUtils.toString(httpResponse.getEntity()));  
+            	return EntityUtils.toString(httpResponse.getEntity());
+//                return XmlBase64.decode(EntityUtils.toString(httpResponse.getEntity()));  
             } else {  
                 System.out.println("doPost Error Response: " + httpResponse.getStatusLine().toString());  
             }  
@@ -152,7 +153,8 @@ public class HttpClientUtil {
             // 若状态码为200 ok  
             if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {  
                 // 取出回应字串  ,base64解码
-                return XmlBase64.decode(EntityUtils.toString(httpResponse.getEntity()));  
+            	return EntityUtils.toString(httpResponse.getEntity());
+//                return XmlBase64.decode(EntityUtils.toString(httpResponse.getEntity()));  
             } else {  
                 System.out.println("doPost Error Response: " + httpResponse.getStatusLine().toString());  
             }  

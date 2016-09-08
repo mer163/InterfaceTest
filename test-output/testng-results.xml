@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="0" passed="0">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="6" started-at="2016-08-24T10:26:38Z" finished-at="2016-08-24T10:26:38Z">
+  <suite name="Suite" duration-ms="340" started-at="2016-09-08T08:25:51Z" finished-at="2016-09-08T08:25:51Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="6" started-at="2016-08-24T10:26:38Z" finished-at="2016-08-24T10:26:38Z">
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    <test name="Test" duration-ms="340" started-at="2016-09-08T08:25:51Z" finished-at="2016-09-08T08:25:51Z">
+      <class name="zbwx.test.h5.testcases.TestLogin">
+        <test-method status="PASS" signature="login_success()[pri:0, instance:zbwx.test.h5.testcases.TestLogin@643b1d11]" name="login_success" duration-ms="305" started-at="2016-09-08T16:25:51Z" finished-at="2016-09-08T16:25:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_success -->
+        <test-method status="PASS" signature="login_with_incorrect_pwd()[pri:0, instance:zbwx.test.h5.testcases.TestLogin@643b1d11]" name="login_with_incorrect_pwd" duration-ms="22" started-at="2016-09-08T16:25:51Z" finished-at="2016-09-08T16:25:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_with_incorrect_pwd -->
+      </class> <!-- zbwx.test.h5.testcases.TestLogin -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>
